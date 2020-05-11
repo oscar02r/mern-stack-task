@@ -9,6 +9,7 @@
               useUnifiedTopology: true,
               useFindAndModify:false
           });
+          console.log('DB conectada');
     } catch (error) {
         console.log(error);
         process.exit(1);

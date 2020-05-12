@@ -8,7 +8,7 @@ const router = express.Router();
 //api/proyectos
 router.post('/', 
   auth,
-  [
+   [
       check('nombre', 'El nombre del proyecto es obligatorio').not().isEmpty()
   ],
   proyectoController.crearProyecto
@@ -22,6 +22,12 @@ router.get('/',
   proyectoController.obtenerProyectos
 ); 
 
-
+router.put( '/:id',
+  auth,
+  [
+    check('nombre', 'El nombre del proyecto es obligarotio').not().isEmpty()
+  ],
+  proyectoController.actualizarProyecto
+);
 
 module.exports = router;

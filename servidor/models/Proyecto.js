@@ -13,7 +13,7 @@ const ProyectoSchema = mongoose.Schema({
 
     creado: {
        type: Date,
-       default: Data.now()
+       default: Date.now()
     } 
 });
 

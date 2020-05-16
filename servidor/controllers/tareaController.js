@@ -48,7 +48,7 @@ exports.obtenerTareas = async ( req, res) => {
             return res.status(401).json({msg: 'No Autorizado'});
         }
 
-        const tareas = await Tarea.find({proyecto})
+        const tareas = await Tarea.find({proyecto}).sort({creado:-1});
         return res.status(200).json({tareas});
     } catch (error) {
         console.log(error);
@@ -93,10 +93,10 @@ exports.actualizarTarea = async ( req, res) => {
       }
 }
 
-    exports.eliminarTarea = async (req, res) =>{
+exports.eliminarTarea = async (req, res) =>{
         try {
           
-            const { proyecto, nombre, estado } = req.body;
+            const { proyecto } = req.query;
      
             let tarea = await Tarea.findById(req.params.id);
             
